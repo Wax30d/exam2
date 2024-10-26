@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.title }}</title>
+</head>
+<body>
+    <h3>Course ID: {{ course.id }}</h3>
+    <p>Course name: {{ course.title }}</p>
+
+    <h1>List of the students:</h1>
+
+    <hr>
+    {% for x in course.students.all %}
+            <ul>{{ x.id }}. {{ x.name }}</ul>
+            <ul>Email of the student: {{ x.email }}</ul>
+    <hr>
+    {% endfor %}
+    <br>
+
+    <a href="{% url 'course_update' course.pk %}">Edit</a>
+    <a href="{% url 'course_delete' course.pk %}">Delete</a>
+    <a href="{% url 'course_list' %}">Back to List</a>
+</body>
+</html>

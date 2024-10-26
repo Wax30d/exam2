@@ -1,0 +1,14 @@
+{% block content %}
+    <h1>{{ restaurant.pk }}-Restaurant Detail:</h1>
+  <h1>Name Restaurant: {{ restaurant.place.name }}</h1>
+  <p>Location: {{ restaurant.place.address }}</p>
+    <br>
+    <hr>
+  <h2>Menu:</h2>
+    <h2>Hot dogs: {{ restaurant.serves_hot_dogs }}</h2>
+    <h2>Pizza: {{ restaurant.serves_pizza }}</h2>
+
+    <hr>
+    <a href="{% url 'restaurant_list' %}">Restaurants</a>
+
+{% endblock %}

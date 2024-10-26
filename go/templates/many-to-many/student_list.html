@@ -1,0 +1,19 @@
+<!-- templates/students/student_list.html -->
+<h1>Students</h1>
+<a href="{% url 'student_create' %}">Add Student</a>
+<hr>
+<ol>
+    {% for student in students %}
+        <li>
+            <p>Student ID: {{ student.id }} | Student name: {{ student.name }}</p>
+
+            <a href="{% url 'student_detail' student.pk %}">Detail</a>
+            <a href="{% url 'student_update' student.pk %}">Edit</a>
+            <a href="{% url 'student_delete' student.pk %}">Delete</a>
+            <hr>
+        </li>
+    {% endfor %}
+</ol>
+<br>
+<hr>
+<a href="{% url 'course_list' %}">Courses</a>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location</title>
+</head>
+<body>
+    <h1>Location of the Restaurants</h1>
+    <a href="{% url 'place_create' %}">Add Location</a>
+    <ol>
+        {% for place in places %}
+            <li>
+                {{ place.name }} in {{ place.address }}
+                <a href="{% url 'place_detail' place.pk %}">Detail</a>
+                <a href="{% url 'place_update' place.pk %}">Edit</a>
+                <a href="{% url 'place_delete' place.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ol>
+    <hr>
+    <a href="{% url 'restaurant_list' %}">Menu of the Restaurants</a>
+</body>
+</html>

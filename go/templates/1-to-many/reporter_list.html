@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporters</title>
+</head>
+<body>
+    <h1>Reporters</h1>
+    <a href="{% url 'reporter_create' %}">Add Reporter</a>
+    <ol>
+        {% for reporter in reporters %}
+            <li>{{ reporter }}</li>
+
+                <a href="{% url 'reporter_detail' reporter.pk %}">Detail</a>
+                <a href="{% url 'reporter_edit' reporter.pk %}">Edit</a>
+                <a href="{% url 'reporter_delete' reporter.pk %}">Delete</a>
+        <hr>
+        {% endfor %}
+    </ol>
+    <br>
+    <a href="{% url 'article_list' %}">List of Articles</a>
+</body>
+</html>

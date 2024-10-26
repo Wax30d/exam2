@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+</head>
+<body>
+    <h1>Menu of the Restaurants</h1>
+    <a href="{% url 'restaurant_create' %}">Add Menu for The Restaurants</a>
+    <ol>
+        {% for restaurant in restaurants %}
+            <li>
+                {{ restaurant.place.name }} in {{ restaurant.place.address }}
+                <a href="{% url 'restaurant_detail' restaurant.pk %}">Detail</a>
+                <a href="{% url 'restaurant_update' restaurant.pk %}">Edit</a>
+                <a href="{% url 'restaurant_delete' restaurant.pk %}">Delete</a>
+            </li>
+            <hr>
+            <br>
+        {% endfor %}
+    </ol>
+    <hr>
+    <a href="{% url 'place_list' %}">Location of the Restaurants</a>
+</body>
+</html>

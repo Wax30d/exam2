@@ -1,0 +1,23 @@
+<!-- course_list.html -->
+<h1>Course List</h1>
+<a href="{% url 'course_create' %}">Add Course</a>
+<ol>
+    {% for course in courses %}
+        <li>
+            {{ course.title }}
+            <br>
+            <strong>Students:</strong>
+            {% for student in course.students.all %}
+                {{ student.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <br>
+            <a href="{% url 'course_detail' course.pk %}">Detail</a>
+            <a href="{% url 'course_update' course.pk %}">Edit</a>
+            <a href="{% url 'course_delete' course.pk %}">Delete</a>
+            <hr>
+        </li>
+    {% endfor %}
+</ol>
+
+<br>
+<a href="{% url 'student_list' %}">List of Students</a>

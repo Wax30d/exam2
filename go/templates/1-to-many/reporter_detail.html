@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ reporter }}</title>
+</head>
+<body>
+    Reporter ID: {{ reporter.id }}
+    <h1>Firstname: {{ reporter.first_name }}</h1>
+    <h1>Lastname: {{ reporter.last_name }}</h1>
+    <p>Email: {{ reporter.email }}</p>
+
+    <h2>Articles</h2>
+    <hr>
+    {% for x in reporter.article_set.all %}
+            <ul>{{ x.id }}. {{ x.headline }}</ul>
+            <p>Publication date: {{ x.pub_date }}</p>
+    <hr>
+    {% endfor %}
+    <br>
+    <a href="{% url 'reporter_edit' reporter.pk %}">Edit</a>
+    <a href="{% url 'reporter_delete' reporter.pk %}">Delete</a>
+    <a href="{% url 'reporter_list' %}">Back to List</a>
+
+</body>
+</html>

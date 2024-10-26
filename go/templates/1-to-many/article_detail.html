@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.headline }}</title>
+</head>
+<body>
+    <h1>{{ article.headline }}</h1>
+    <p>Published on: {{ article.pub_date }}</p>
+    <p>Reporter: {{ article.reporter }}</p>
+    <p>Email: {{ article.reporter.email }}</p>
+    <a href="{% url 'article_edit' article.pk %}">Edit</a>
+    <a href="{% url 'article_delete' article.pk %}">Delete</a>
+    <a href="{% url 'article_list' %}">Back to List</a>
+</body>
+</html>
